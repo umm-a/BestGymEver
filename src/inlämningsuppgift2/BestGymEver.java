@@ -8,6 +8,7 @@ import java.nio.file.Paths;
 public class BestGymEver {
     BestGymEver() {
         boolean test = false;
+        boolean visaEjIJOptionPane = true;
         Path filväg = Paths.get("src/inlämningsuppgift2/customers.txt");
         Member member = new Member();
         boolean kör = true;
@@ -26,6 +27,8 @@ public class BestGymEver {
                 if (member.korrektPersonnummer(personnummer, test) == true && member.finnsIFil(personnummer, filväg, test, seStatus) == 2) {
                     String kundensFilväg = "src/inlämningsuppgift2/" + personnummer + ".txt";
                     member.kundHarTränatTillPTFil(personnummer, filväg, test);
+                }else if(member.korrektPersonnummer(personnummer, visaEjIJOptionPane) == true){
+                    JOptionPane.showMessageDialog(null, "Det går inte att söka för icke-medlem");
                 }
             } else if (val.trim().equals("3")) {//observera att kunden måste ha loggat träning för att det ska finnas en fil att söka i
                 String personnummer = JOptionPane.showInputDialog("Vilken kund vill du söka för? Ange personnummer (10 siffror)");
@@ -33,7 +36,7 @@ public class BestGymEver {
                     String sökord = JOptionPane.showInputDialog("Ange vad du letar efter i filen\n(t.ex. ett träningstillfälle 2019-07-08)");
                     File kundensFil = new File(member.returneraFilnamn(personnummer));
                     member.läsFrånKundensFil(kundensFil, sökord, test);
-                } else {
+                } else if(member.korrektPersonnummer(personnummer, visaEjIJOptionPane) == true){
                     JOptionPane.showMessageDialog(null, "Det går inte att söka för icke-medlem");
                 }
             } else if (val.trim().equals("4")) {
@@ -42,7 +45,7 @@ public class BestGymEver {
                     File kundensFil = new File(member.returneraFilnamn(personnummer));
                     JOptionPane.showMessageDialog(null, "Antal träningstillfällen: " +
                             member.antalTräningstillfällen(kundensFil, test));
-                } else {
+                } else if(member.korrektPersonnummer(personnummer, visaEjIJOptionPane) == true){
                     JOptionPane.showMessageDialog(null, "Det går inte att söka för icke-medlem");
                 }
             } else if (val.trim().equals("5")) {
