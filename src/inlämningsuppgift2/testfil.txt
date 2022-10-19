@@ -1,4 +1,4 @@
 Maria Hagelin har skrivit några tester
-Det här är en del av testet läsKundensFilTest
+Det här är en del av testet läsFrånKundensFilTest
 
 Pirajor är inte ett dugg söta
