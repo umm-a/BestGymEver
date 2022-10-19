@@ -98,7 +98,7 @@ public class BestGymEverTests {
         assertFalse(member.skrivTillKundensFil("src/inlämningsuppgift2/9906132222.txt", "9906132222, Maria Hagelin ", testDatum, test).equals("Maria Hagelin är kort"));
 
         File minFil = new File("src/inlämningsuppgift2/9906132222.txt");
-        assert(member.raderaFil(minFil)==true); //filen raderas för att jag vill få en mer "clean" virtuell arbetsyta(inte fullklottrade filer...)
+        assert(member.raderaFil(minFil)==true); //filen raderas för att jag vill få en mer "clean virtuell arbetsyta"(inte fullklottrade filer...)
     }
 
     @Test
