@@ -1,0 +1,4 @@
+Maria Hagelin har skrivit några tester
+Det här är en del av testet läsKundensFilTest
+
+Pirajor är inte ett dugg söta
