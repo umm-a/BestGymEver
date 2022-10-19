@@ -14,19 +14,6 @@ import java.util.Scanner;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-/*• Läsa personposter från fil.
-• todo Ha bra felhantering (relevanta felmeddelanden, exceptionhantering och try-with-resources)
-• todo Koden ska vara enkelt läsbar och prydligt skriven.
-
-För att bli Väl Godkänd (VG) måste lösningen uppfylla följande:
-• Jobba helt testdrivet när du löser uppgiften (Sigrun kommer såklart inte att kunna se om ni
-gör det eller inte, detta är en hederssak)
-• Det ska finnas enhetstester som minst täcker följande delar av koden:
-o Att inläsning av korrekt data görs, på korrekt sätt
-o Att datat kontrolleras och behandlas på rätt sätt
-o Att korrekta utskrifter skrivs till fil
-*/
-
 public class BestGymEverTests {
     Member member = new Member();
     String kund1 = "9906132324"; //finns ej
