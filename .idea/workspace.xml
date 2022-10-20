@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="616c8d86-01aa-4a15-b7a4-53f91d1fdeb2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/inl2.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/inlämningsuppgift2/BestGymEver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/inlämningsuppgift2/Member.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/inlämningsuppgift2/customers.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/inlämningsuppgift2/testfil.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/inlämningsuppgift2Test/BestGymEverTests.java" afterDir="false" />
+    <list default="true" id="616c8d86-01aa-4a15-b7a4-53f91d1fdeb2" name="Changes" comment="A fun, bit ugly, solution to not show a message in JOptionPane...">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inlämningsuppgift2/BestGymEver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/inlämningsuppgift2/BestGymEver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inlämningsuppgift2/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/inlämningsuppgift2/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/inlämningsuppgift2Test/BestGymEverTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/inlämningsuppgift2Test/BestGymEverTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +60,7 @@
       <recent name="inlämningsuppgift2Test" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.BestGymEver">
+  <component name="RunManager" selected="JUnit.BestGymEverTests">
     <configuration name="BestGymEver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="inlämningsuppgift2.BestGymEver" />
       <module name="inl2" />
@@ -146,10 +139,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.BestGymEver" />
         <item itemvalue="JUnit.BestGymEverTests" />
-        <item itemvalue="JUnit.BestGymEverTests.läsFrånKundensFilTest" />
         <item itemvalue="JUnit.BestGymEverTests.skrivTillKundensFilTest" />
+        <item itemvalue="Application.BestGymEver" />
+        <item itemvalue="JUnit.BestGymEverTests.läsFrånKundensFilTest" />
         <item itemvalue="JUnit.BestGymEverTests.antalTräningstillfällen" />
       </list>
     </recent_temporary>
@@ -163,6 +156,42 @@
       <option name="presentableId" value="Default" />
       <updated>1666104281136</updated>
     </task>
+    <task id="LOCAL-00001" summary="initial commit">
+      <created>1666199868557</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1666199868557</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Change of comment">
+      <created>1666200308196</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1666200308196</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Change of comment">
+      <created>1666200326770</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1666200326770</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Removed comment">
+      <created>1666200438091</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1666200438091</updated>
+    </task>
+    <task id="LOCAL-00005" summary="A fun, bit ugly, solution to not show a message in JOptionPane...">
+      <created>1666200984526</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1666200984526</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -175,5 +204,17 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initial commit" />
+    <MESSAGE value="Change of comment" />
+    <MESSAGE value="Removed comment" />
+    <MESSAGE value="A fun, bit ugly, solution to not show a message in JOptionPane..." />
+    <option name="LAST_COMMIT_MESSAGE" value="A fun, bit ugly, solution to not show a message in JOptionPane..." />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/inl2$BestGymEver.ic" NAME="BestGymEver Coverage Results" MODIFIED="1666199667344" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>inlämningsuppgift2.*</FILTER>
+    </SUITE>
   </component>
 </project>

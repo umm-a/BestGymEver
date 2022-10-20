@@ -2,9 +2,7 @@ package inlämningsuppgift2;
 
 import javax.swing.*;
 import java.io.*;
-import java.nio.file.NoSuchFileException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.nio.file.*;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -134,43 +132,38 @@ public class Member {
             }
             String newFileName = "";
             Path p = Paths.get("src/inlämningsuppgift2/customers.txt");
-                newFileName = returneraFilnamn(kundPersonnummer);
+                newFileName = returneraPathnamn(kundPersonnummer);
                 skrivTillKundensFil(newFileName, kunduppgifter, dagensDatum, test);
             return newFileName;
     }
     public String skrivTillKundensFil(String newFileName, String kunduppgifter, LocalDate dagensDatum, boolean test) {
         String skrevsTillFil = "";
-        try {
-            File newFile = new File(newFileName);
-            if (!newFile.exists()) {
-                newFile.createNewFile();
-            }
-            try (PrintWriter pwTillFil = new PrintWriter(new FileWriter(newFile, true))) {
-                pwTillFil.println(kunduppgifter + "tränade " + dagensDatum);
+
+            try (BufferedWriter bwTillFil = new BufferedWriter(new FileWriter(newFileName, true))) {
+                bwTillFil.write(kunduppgifter + "tränade " + dagensDatum);
+                bwTillFil.newLine();
                 skrevsTillFil = kunduppgifter + "tränade " + dagensDatum;
                 if(test){
                     System.out.println("\"" + kunduppgifter + "tränade " + dagensDatum + "\"" + " skrevs in i filen");
                 } else{
                     JOptionPane.showMessageDialog(null, "\"" + kunduppgifter + "tränade " + dagensDatum + "\"" + " skrevs in i filen");
                 }
-            } catch (IOException e) {
+            }catch(NoSuchFileException e){
+                System.out.println("Filen hittades ej");
+                e.printStackTrace();
+            }catch (IOException e) {
                 System.out.println("Något med filen gick snett...");
                 e.printStackTrace();
             } catch (Exception e) {
                 System.out.println("Något annat fel? Hur är det möjligt?");
                 e.printStackTrace();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
             return skrevsTillFil;
         }
 
-        public int antalTräningstillfällen(File fil, boolean test){
+        public int antalTräningstillfällen(Path path, boolean test){
         int raderIFil = 0;
-            try(Scanner scanRad = new Scanner(fil)){
+            try(Scanner scanRad = new Scanner(path)){
                 while(scanRad.hasNextLine()){
                     if(scanRad.hasNext()){
                         raderIFil++;
@@ -190,17 +183,17 @@ public class Member {
             }
         return raderIFil;
         }
-        public boolean läsFrånKundensFil(File kundensFil, String finnsJagIFilen, boolean test){
+        public boolean läsFrånKundensFil(Path kundensPath, String finnsJagIFilen, boolean test){
         boolean finns = false;
         String rad = "";
-            try(Scanner scannaInnehåll = new Scanner(kundensFil)){
+            try(Scanner scannaInnehåll = new Scanner(kundensPath)){
                 while(scannaInnehåll.hasNextLine()) {
                     rad = scannaInnehåll.nextLine();
                     if(rad.contains(finnsJagIFilen)){
                         if(test){
                             System.out.println("\"" + finnsJagIFilen + "\"" + " finns i filen");
                         }else{
-                            JOptionPane.showMessageDialog(null, "\"" + finnsJagIFilen + "\"" +" finns i filen " + kundensFil);
+                            JOptionPane.showMessageDialog(null, "\"" + finnsJagIFilen + "\"" +" finns i filen " + kundensPath);
                         }
                         return true;
                     }
@@ -219,23 +212,33 @@ public class Member {
             if(test){
                 System.out.println("\"" + finnsJagIFilen + "\"" + " hittades ej i filen");
             }else{
-                JOptionPane.showMessageDialog(null, "\"" + finnsJagIFilen + "\"" + " hittades ej i filen" + kundensFil);
+                JOptionPane.showMessageDialog(null, "\"" + finnsJagIFilen + "\"" + " hittades ej i filen" + kundensPath);
             }
             return finns;
         }
-        public String returneraFilnamn(String personnummer){
-            String fil = "src/inlämningsuppgift2/" + personnummer + ".txt";
-        return fil;
+        public String returneraPathnamn(String personnummer){
+            String path = "src/inlämningsuppgift2/" + personnummer + ".txt";
+        return path;
         }
 
-        public boolean raderaFil(File filnamn){
+        public boolean raderaFil(Path valdPath){
         boolean raderad=false;
-            if (filnamn.delete()) {
-                System.out.println("Filen raderades: " + filnamn.getName());
-                return true;
-            } else {
-                System.out.println("Filen kunde ej raderas.");
-            }
+        try{
+            Files.delete(valdPath);
+            System.out.println("Filen raderades: " + valdPath);
+            return true;
+        }catch (NoSuchFileException e){
+            System.out.println("Filen hittades ej");
+            e.printStackTrace();
+        }catch (DirectoryNotEmptyException e){
+            System.out.println("Du försökte radera ett Directory som ej var tomt");
+            e.printStackTrace();
+        } catch (IOException e){
+            System.out.println("IOException");
+            e.printStackTrace();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
             return raderad;
         }
 }

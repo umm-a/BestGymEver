@@ -34,17 +34,17 @@ public class BestGymEver {
                 String personnummer = JOptionPane.showInputDialog("Vilken kund vill du söka för? Ange personnummer (10 siffror)");
                 if (member.korrektPersonnummer(personnummer, test) == true && member.finnsIFil(personnummer, filväg, test, seStatus) == 2) {
                     String sökord = JOptionPane.showInputDialog("Ange vad du letar efter i filen\n(t.ex. ett träningstillfälle 2019-07-08)");
-                    File kundensFil = new File(member.returneraFilnamn(personnummer));
-                    member.läsFrånKundensFil(kundensFil, sökord, test);
+                    Path kundensPath = Paths.get((member.returneraPathnamn(personnummer)));
+                    member.läsFrånKundensFil(kundensPath, sökord, test);
                 } else if(member.korrektPersonnummer(personnummer, visaEjIJOptionPane) == true){
                     JOptionPane.showMessageDialog(null, "Det går inte att söka för icke-medlem");
                 }
             } else if (val.trim().equals("4")) {
                 String personnummer = JOptionPane.showInputDialog("Vilken kund vill du söka för? Ange personnummer (10 siffror)");
                 if (member.korrektPersonnummer(personnummer, test) == true && member.finnsIFil(personnummer, filväg, test, seStatus) == 2) {
-                    File kundensFil = new File(member.returneraFilnamn(personnummer));
+                    Path kundensPath = Paths.get(member.returneraPathnamn(personnummer));
                     JOptionPane.showMessageDialog(null, "Antal träningstillfällen: " +
-                            member.antalTräningstillfällen(kundensFil, test));
+                            member.antalTräningstillfällen(kundensPath, test));
                 } else if(member.korrektPersonnummer(personnummer, visaEjIJOptionPane) == true){
                     JOptionPane.showMessageDialog(null, "Det går inte att söka för icke-medlem");
                 }

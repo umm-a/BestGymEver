@@ -84,8 +84,8 @@ public class BestGymEverTests {
         assert(member.skrivTillKundensFil("src/inlämningsuppgift2/9906132222.txt", "9906132222, Maria Hagelin ", testDatum, test).equals("9906132222, Maria Hagelin tränade 2022-10-14"));
         assertFalse(member.skrivTillKundensFil("src/inlämningsuppgift2/9906132222.txt", "9906132222, Maria Hagelin ", testDatum, test).equals("Maria Hagelin är kort"));
 
-        File minFil = new File("src/inlämningsuppgift2/9906132222.txt");
-        assert(member.raderaFil(minFil)==true); //filen raderas för att jag vill få en mer "clean virtuell arbetsyta"(inte fullklottrade filer...)
+        Path minPath = Paths.get("src/inlämningsuppgift2/9906132222.txt");
+        assert(member.raderaFil(minPath)==true); //filen raderas för att jag vill få en mer "clean virtuell arbetsyta"(inte fullklottrade filer...)
     }
 
     @Test
@@ -93,34 +93,34 @@ public class BestGymEverTests {
         boolean test = true;
         LocalDate testDatum = LocalDate.of(2022, 10, 14);
 
-        member.skrivTillKundensFil("src/inlämningsuppgift2/1234567890.txt", "Ajlajk Chocolaat", testDatum, test);
-        member.skrivTillKundensFil("src/inlämningsuppgift2/1234567890.txt", "Ajlajk Chocolaat", testDatum, test);
+        member.skrivTillKundensFil("src/inlämningsuppgift2/1234567890.txt", "Ajlajk Chocolaat ", testDatum, test);
+        member.skrivTillKundensFil("src/inlämningsuppgift2/1234567890.txt", "Ajlajk Chocolaat ", testDatum, test);
 
-        File minFil = new File("src/inlämningsuppgift2/1234567890.txt");
-        assert(member.antalTräningstillfällen(minFil, test)==2);
-        assert(member.raderaFil(minFil)==true);//filen måste raderas för att testerna ska gå gröna
+        Path minPath = Paths.get("src/inlämningsuppgift2/1234567890.txt");
+        assert(member.antalTräningstillfällen(minPath, test)==2);
+        assert(member.raderaFil(minPath)==true);//filen måste raderas för att testerna ska gå gröna
         //Har däremot lagt till utskrifter från metoden som visar på att filen funnits under testets gång!
     }
 
     @Test
     public void läsFrånKundensFilTest(){
         boolean test = true;
-        File minFil = new File("src/inlämningsuppgift2/testfil.txt");
+        Path minPath = Paths.get("src/inlämningsuppgift2/testfil.txt");
 
-        assertFalse(member.läsFrånKundensFil(minFil, "Björnen sover", test));//skickar in vad vi vill leta efter i filen, returnerar false då "Björnen sover" ej finns i filen
-        assertTrue(member.läsFrånKundensFil(minFil, "Pirajor är inte ett dugg", test)); //finns i filen testfil.txt
+        assertFalse(member.läsFrånKundensFil(minPath, "Björnen sover", test));//skickar in vad vi vill leta efter i filen, returnerar false då "Björnen sover" ej finns i filen
+        assertTrue(member.läsFrånKundensFil(minPath, "Pirajor är inte ett dugg", test)); //finns i filen testfil.txt
         //vi kan också använda denna metod för att se om vi fått en fullständig korrekt utskrift sedan skrivTillFilTest(), här kollar vi istället i min testfil.txt
 
         LocalDate testDatum = LocalDate.of(2022, 10, 14);
         member.skrivTillKundensFil("src/inlämningsuppgift2/9906132222.txt", "9906132222, Maria Hagelin ", testDatum, test);
-        File MariasFil = new File("src/inlämningsuppgift2/9906132222.txt");
-        assertTrue(member.läsFrånKundensFil(MariasFil, "9906132222, Maria Hagelin tränade 2022-10-14", test));//kollar efter korrekt utskrift till fil från läsKundensFil
-        assert(member.raderaFil(MariasFil)==true);
+        Path MariasPath = Paths.get("src/inlämningsuppgift2/9906132222.txt");
+        assertTrue(member.läsFrånKundensFil(MariasPath, "9906132222, Maria Hagelin tränade 2022-10-14", test));//kollar efter korrekt utskrift till fil från läsKundensFil
+        assert(member.raderaFil(MariasPath)==true);
     }
 
     @Test
     public void returneraFilnamnTest(){
         String ettPersonnummer = "9507143421";
-        assert(member.returneraFilnamn(ettPersonnummer).equals("src/inlämningsuppgift2/9507143421.txt"));
+        assert(member.returneraPathnamn(ettPersonnummer).equals("src/inlämningsuppgift2/9507143421.txt"));
     }
 }
