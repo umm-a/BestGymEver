@@ -144,9 +144,9 @@ public class Member {
                 bwTillFil.newLine();
                 skrevsTillFil = kunduppgifter + "tränade " + dagensDatum;
                 if(test){
-                    System.out.println("\"" + kunduppgifter + "tränade " + dagensDatum + "\"" + " skrevs in i filen");
+                    System.out.println("\"" + skrevsTillFil + "\"" + " skrevs in i filen");
                 } else{
-                    JOptionPane.showMessageDialog(null, "\"" + kunduppgifter + "tränade " + dagensDatum + "\"" + " skrevs in i filen");
+                    JOptionPane.showMessageDialog(null, "\"" + skrevsTillFil + "\"" + " skrevs in i filen");
                 }
             }catch(NoSuchFileException e){
                 System.out.println("Filen hittades ej");
