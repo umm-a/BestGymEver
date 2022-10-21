@@ -59,10 +59,8 @@ public class Member {
                     if(harBetalat((datumFrånFil), idag, test)==true){
                         if(test){
                             System.out.println("Har betalat senaste året = MEDLEM\n");
-                        }else{
-                            if(seStatus){
+                        }else if(seStatus){
                                 JOptionPane.showMessageDialog(null, personnummerOchNamn + " har betalat senaste året och är medlem.");
-                            }
                         }
                         return 2;
                     }else {
