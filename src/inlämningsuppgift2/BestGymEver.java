@@ -50,7 +50,6 @@ public class BestGymEver {
                         JOptionPane.showMessageDialog(null, "Det går inte att söka för icke-medlem");
                     }
                 } else if (val.trim().equals("5")) {
-
                     kör = false;
                 } else {
                     JOptionPane.showMessageDialog(null, "Du angav varken 1, 2, 3, 4 eller 5");
@@ -58,8 +57,7 @@ public class BestGymEver {
             }catch (NullPointerException e){
                 kör = false;
             }
-            }
-
+        }
     }
     public static void main(String[] args) {
         BestGymEver theBestGymEver = new BestGymEver();
